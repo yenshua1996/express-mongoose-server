@@ -1,7 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./router/routes.js";
+
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use("/", router);
 
