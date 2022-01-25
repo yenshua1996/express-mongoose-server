@@ -8,6 +8,12 @@ const blogPostSchema = new mongoose.Schema({
   comments: [mongoose.Schema.Types.ObjectId],
 });
 
-const BlogPost = mongoose.model("BlogPost", blogPostSchema);
+export const BlogPost = mongoose.model("BlogPost", blogPostSchema);
 
-export default BlogPost;
+const commentSchema = new mongoose.Schema({
+  author: { type: String, default: "Anonymous" },
+  body: String,
+  date: { type: Date, default: Date.now },
+});
+
+export const Comment = mongoose.model("Comment", commentSchema);
