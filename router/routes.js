@@ -4,6 +4,8 @@ import {
   createBlog,
   deleteBlog,
   updateBlog,
+  testError,
+  errorMiddleware,
 } from "./routeHandler.js";
 
 const router = express.Router();
@@ -15,5 +17,9 @@ router.post("/blog", createBlog);
 router.delete("/blog/:id", deleteBlog);
 
 router.patch("/blog/:id", updateBlog);
+
+router.get("/error", testError);
+
+router.use(errorMiddleware);
 
 export default router;
